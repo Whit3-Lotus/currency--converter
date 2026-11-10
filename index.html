@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Convert between world currencies using live exchange rates."
+    />
+    <title>Currency Converter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="card">
+      <header class="card-header">
+        <h1>Currency Converter</h1>
+        <p class="subtitle">Live exchange rates for 150+ currencies</p>
+      </header>
+
+      <form id="converter" novalidate>
+        <div class="field">
+          <label for="amount">Amount</label>
+          <input
+            id="amount"
+            name="amount"
+            class="control amount-input"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            value="1"
+            aria-describedby="amount-error"
+          />
+          <p id="amount-error" class="field-error" role="alert" hidden></p>
+        </div>
+
+        <div class="pair">
+          <div class="field">
+            <label for="from">From</label>
+            <div class="select-wrap">
+              <img
+                id="flag-from"
+                class="flag"
+                alt=""
+                width="24"
+                height="24"
+                src="https://flagsapi.com/US/flat/64.png"
+              />
+              <select id="from" name="from" class="control select"></select>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            id="swap"
+            class="swap"
+            aria-label="Swap currencies"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M8 3 4 7l4 4" />
+              <path d="M4 7h16" />
+              <path d="m16 21 4-4-4-4" />
+              <path d="M20 17H4" />
+            </svg>
+          </button>
+
+          <div class="field">
+            <label for="to">To</label>
+            <div class="select-wrap">
+              <img
+                id="flag-to"
+                class="flag"
+                alt=""
+                width="24"
+                height="24"
+                src="https://flagsapi.com/IN/flat/64.png"
+              />
+              <select id="to" name="to" class="control select"></select>
+            </div>
+          </div>
+        </div>
+
+        <section
+          id="result"
+          class="result"
+          data-state="loading"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <div id="result-ok">
+            <p id="result-from" class="result-from">Loading rates…</p>
+            <p class="result-to">
+              <span id="result-value" class="result-value">—</span>
+              <span id="result-code" class="result-code"></span>
+            </p>
+            <p id="result-name" class="result-name"></p>
+            <p id="result-rate" class="result-rate"></p>
+          </div>
+          <p id="result-error" class="result-error" hidden></p>
+        </section>
+
+        <button type="submit" id="submit" class="submit">
+          Get Exchange Rate
+        </button>
+      </form>
+
+      <footer class="card-footer">
+        <p id="updated" class="updated"></p>
+        <p class="credit">
+          Rates from the free
+          <a
+            href="https://github.com/fawazahmed0/exchange-api"
+            target="_blank"
+            rel="noopener noreferrer"
+            >fawazahmed0 currency API</a
+          >.
+        </p>
+      </footer>
+
+      <noscript>
+        <p class="noscript">This converter needs JavaScript to run.</p>
+      </noscript>
+    </main>
+
+    <script src="codes.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
