@@ -4,9 +4,13 @@ A Simple Currency Converter With HTML, CSS & JavaScript
 It converts between 150+ currencies using live exchange rates, with:
 
  Instant results as you type
+ 
  One-click currency swap
+ 
  Dark mode that follows your system
+ 
  Works on phone and desktop
+ 
  Clear error messages when the network fails
 
 
